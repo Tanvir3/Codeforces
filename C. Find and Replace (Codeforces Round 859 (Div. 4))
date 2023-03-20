@@ -1,0 +1,53 @@
+///Bismillahir Rahmanir Rahim
+///Author: Tanvir Ahmmad
+///CSE,Islamic University,Bangladesh
+
+#include<iostream>
+#include<cstdio>
+#include<algorithm>
+#include<string>
+#include<cstring>
+#include<sstream>
+#include<cmath>
+#include<cstring>
+#include<vector>
+#include<queue>
+#include<map>
+#include<set>
+#include<stack>
+#include<vector>
+#include<iterator>
+#include <functional> ///sort(arr,arr+n,greater<int>()) for decrement of array
+/*every external angle sum=360 degree
+  angle find using polygon hand(n) ((n-2)*180)/n*/
+///Floor[Log(b)  N] + 1 = the number of digits when any number is represented in base b
+using namespace std;
+typedef long long ll;
+
+
+int main()
+{
+    ll tst,n;
+    cin>>tst;
+    while(tst--)
+    {
+        string str;
+        cin>>n>>str;
+
+        set<char>st,st1,st2;
+
+        for(ll i=0;i<str.size();i++)
+        {
+            st.insert(str[i]);
+            if(i%2==0) st1.insert(str[i]);
+            else st2.insert(str[i]);
+        }
+
+
+        if(st.size()==(st1.size()+st2.size())) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+
+    return 0;
+}
+///Alhamdulillah
