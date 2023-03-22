@@ -1,0 +1,40 @@
+///Bismillahir Rahmanir Rahim
+///Author: Tanvir Ahmmad
+///CSE,Islamic University,Bangladesh
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll n,num;
+
+    cin>>n;
+    ll vis[100009],ma=0,ans[n+9];
+    bool flag=true;
+    memset(vis,0,sizeof vis);
+
+    for(ll i=1;i<=n;i++)
+    {
+        cin>>num;
+        ma=max(ma,num);
+        vis[num]++;
+        ans[i]=vis[num];
+    }
+
+    for(ll i=2;i<=ma;i++)
+    {
+        if(vis[i-1]<vis[i]) flag=false;
+    }
+
+    if(flag)
+    {
+        cout<<vis[1]<<endl;
+         for(ll i=1;i<=n;i++) cout<<ans[i]<<" ";
+         cout<<endl;
+    }
+    else cout<<"-1"<<endl;
+}
+///Alhamdulillah
