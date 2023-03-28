@@ -1,0 +1,38 @@
+///Bismillahir Rahmanir Rahim
+///Author: Tanvir Ahmmad
+///CSE,Islamic University,Bangladesh
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int tst,n,k;
+    cin>>tst;
+    while(tst--)
+    {
+        cin>>n>>k;
+        vector<int>vec(n+1,-1);
+
+        int pos=0;
+        for(int i=0,j=n;i<n;i++,j--)
+        {
+            if(k>=(n-i)) vec[i]=1000,k-=j,pos++;
+            else{
+                vec[i]=k;
+                pos+=k;
+                break;
+            }
+        }
+        for(int i=pos;i<n;i++)  vec[i]=-2;
+
+        for(int i=0;i<n;i++) cout<<vec[i]<<' ';
+        cout<<endl;
+    }
+
+    return 0;
+}
+///Alhamdulillah
