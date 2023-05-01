@@ -1,0 +1,45 @@
+///Bismillahir Rahmanir Rahim
+///Author: Tanvir Ahmmad
+///CSE,Islamic University,Bangladesh
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+bool ed[4009][4009];
+int ans=INT_MAX;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int node,edge,a,b;
+
+    cin>>node>>edge;
+
+    int degree[node+2];
+    memset(degree,0,sizeof degree);
+
+    while(edge--)
+    {
+        cin>>a>>b;
+        ed[a][b]=ed[b][a]=1;
+        degree[a]++;
+        degree[b]++;
+    }
+
+    for(int i=1; i<=node; i++)
+        for(int j=i+1; j<=node; j++)
+            if(ed[i][j])
+            {
+                for(int k=j+1; k<=node; k++)
+                    if(ed[j][k] && ed[k][i])
+                        ans=min(ans,degree[i]+degree[j]+degree[k]-6);
+            }
+
+    if(ans==INT_MAX)
+        cout<<"-1\n";
+    else
+        cout<<ans<<endl;
+    return 0;
+}
+///Alhamdulillah
